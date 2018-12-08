@@ -61,7 +61,11 @@ def handle_message(event):
 
 #=====[ LEAVE GROUP OR ROOM ]==========
     if text == 'profil':
-        getprofile()
+        line_bot_api.reply_message(
+            event.reply_token,
+            ImageSendMessage(original_content_url="https://instagram.fcgk4-2.fna.fbcdn.net/vp/c1e5737a4524bba9ef9a357c7565db45/5C80ED70/t51.2885-15/sh0.08/e35/s640x640/43986014_244038946273070_1529767450573078675_n.jpg", preview_image_url="https://instagram.fcgk4-2.fna.fbcdn.net/vp/c1e5737a4524bba9ef9a357c7565db45/5C80ED70/t51.2885-15/sh0.08/e35/s640x640/43986014_244038946273070_1529767450573078675_n.jpg")
+        )
+
     if text == '/minggat':
         if isinstance(event.source, SourceGroup):
             line_bot_api.reply_message(
