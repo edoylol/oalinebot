@@ -71,9 +71,9 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text="Bot can't leave from 1:1 chat"))
 #=====[ TEMPLATE MESSAGE ]=============
-    elif text == '/help':
+    elif text == '/template':
         buttons_template = TemplateSendMessage(
-            alt_text='help',
+            alt_text='template',
             template=ButtonsTemplate(
                 title='[ TEMPLATE MSG ]',
                 text= 'Tap the Button',
