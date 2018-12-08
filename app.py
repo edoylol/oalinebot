@@ -105,7 +105,7 @@ def getprofile():
         quickreply(result)
         
 #=====[ LEAVE GROUP OR ROOM ]==========
-    if text == 'profile':
+    if text == 'profil':
         getprofile()
     if text == '/minggat':
         if isinstance(event.source, SourceGroup):
