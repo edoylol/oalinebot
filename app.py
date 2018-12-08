@@ -56,7 +56,57 @@ def handle_message(event):
     text = event.message.text #simplify for receove message
     sender = event.source.user_id #get user_id
     gid = event.source.sender_id #get group_id
+    
+def quickreply(*msgs, mode=('text',)*5):
+        '''
+        Reply a message with msgs as reply content.
+        '''
+        msgs = msgs[:5]
+        content = []
+        for idx, msg in enumerate(msgs):
+            if mode[idx] == 'text':
+                if isinstance(msg, (tuple, list)):
+                    content = [TextSendMessage(text=item) for item in msg]
+                else:
+                    content.append(TextSendMessage(text=msg))
+            elif mode[idx] == 'image':
+                if isinstance(msg, (tuple, list)):
+                    content = [ImageSendMessage(original_content_url=item,
+                                                preview_image_url=item)
+                               for item in msg]
+                else:
+                    content.append(ImageSendMessage(
+                        original_content_url=msg,
+                        preview_image_url=msg))
+            elif mode[idx] == 'custimg':
+                if isinstance(msg, (tuple, list)):
+                    content = [ImageSendMessage(original_content_url=item[0],
+                                                preview_image_url=item[1])
+                               for item in msg]
+                else:
+                    content.append(ImageSendMessage(
+                        original_content_url=msg[0],
+                        preview_image_url=msg[1]))
+        line_bot_api.reply_message(
+            event.reply_token, content
+        )
+def getprofile():
+        '''
+        Send display name and status message of a user.
+        '''
+        result = ("Display name: " + subject.display_name + "\n"
+                  "Profile picture: " + subject.picture_url)
+        try:
+            profile = line_bot_api.get_profile(event.source.user_id)
+            if profile.status_message:
+                result += "\n" + "Status message: " + profile.status_message
+        except LineBotApiError:
+            pass
+        quickreply(result)
+        
 #=====[ LEAVE GROUP OR ROOM ]==========
+    if text == 'profile':
+        getprofile()
     if text == '/minggat':
         if isinstance(event.source, SourceGroup):
             line_bot_api.reply_message(
