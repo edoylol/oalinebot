@@ -57,6 +57,40 @@ def handle_message(event):
     sender = event.source.user_id #get user_id
     gid = event.source.sender_id #get group_id
     
+    def quickreply(*msgs, mode=('text',)*5):
+        '''
+        Reply a message with msgs as reply content.
+        '''
+        msgs = msgs[:5]
+        content = []
+        for idx, msg in enumerate(msgs):
+            if mode[idx] == 'text':
+                if isinstance(msg, (tuple, list)):
+                    content = [TextSendMessage(text=item) for item in msg]
+                else:
+                    content.append(TextSendMessage(text=msg))
+            elif mode[idx] == 'image':
+                if isinstance(msg, (tuple, list)):
+                    content = [ImageSendMessage(original_content_url=item,
+                                                preview_image_url=item)
+                               for item in msg]
+                else:
+                    content.append(ImageSendMessage(
+                        original_content_url=msg,
+                        preview_image_url=msg))
+            elif mode[idx] == 'custimg':
+                if isinstance(msg, (tuple, list)):
+                    content = [ImageSendMessage(original_content_url=item[0],
+                                                preview_image_url=item[1])
+                               for item in msg]
+                else:
+                    content.append(ImageSendMessage(
+                        original_content_url=msg[0],
+                        preview_image_url=msg[1]))
+       line_bot_api.reply_message(
+            event.reply_token, content
+        )
+    
 
 #=====[ LEAVE GROUP OR ROOM ]==========
     if text == 'profil':
