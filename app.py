@@ -33,9 +33,9 @@ from linebot.models import (
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('ISI TOKEN OA KALIAN')
+line_bot_api = LineBotApi('HllzR7lQE3rKqkVx7QmFCTqQ2et2HaiQbKwKAQOeksfm4Ypg5xEdGcFva4qjtkhZqPrxg1S+V/ouHm3FOepJ7cdWm/imHI8gceuK1AxzcEgH3e/xW+ctwAdcaDSwjDOLoW59stZCbjSD+XR8OnGbcgdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('ISI CHHANEL SCREET')
+handler = WebhookHandler('e7130e1ea7d36818b3512cacb599d6a8')
 #===========[ NOTE SAVER ]=======================
 notes = {}
 
@@ -80,15 +80,15 @@ def handle_message(event):
                 actions=[
                     MessageTemplateAction(
                         label='Culum 1',
-                        text='/aditmadzs'
+                        text='/anu'
                     ),
                     MessageTemplateAction(
                         label='CULUM 2',
-                        text='/aditmadzs'
+                        text='/anu'
                     ),
                     MessageTemplateAction(
                         label='CULUM 3',
-                        text='/aditmadzs'
+                        text='/anu'
                     )
                 ]
             )
@@ -103,11 +103,11 @@ def handle_message(event):
                 columns=[
                     CarouselColumn(
                         title='ADD ME',
-                        text='Contact Aditmadzs',
+                        text='anu',
                         actions=[
                             URITemplateAction(
                                 label='>TAP HERE<',
-                                uri='https://line.me/ti/p/~adit_cmct'
+                                uri='https://line.me/ti/p/~vekok.'
                             )
                         ]
                     ),
@@ -117,7 +117,7 @@ def handle_message(event):
                         actions=[
                             URITemplateAction(
                                 label='>TAP HERE!<',
-                                uri='http://line.me/ti/p/~adit_cmct'
+                                uri='http://line.me/ti/p/~vekok.'
                             )
                         ]
                     )
@@ -213,7 +213,7 @@ def handle_message(event):
                     ButtonComponent(
                         style='link',
                         height='sm',
-                        action=URIAction(label='Aditmadzs', uri="https://line.me/ti/p/~adit_cmct")
+                        action=URIAction(label='Aditmadzs', uri="https://line.me/ti/p/~vekok.")
                     )
                 ]
             ),
