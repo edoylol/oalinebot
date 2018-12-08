@@ -80,15 +80,15 @@ def handle_message(event):
                 actions=[
                     MessageTemplateAction(
                         label='help',
-                        text='/help'
+                        text='/menu'
                     ),
                     MessageTemplateAction(
                         label='bot leave',
                         text='/minggat'
                     ),
                     MessageTemplateAction(
-                        label='CULUM 3',
-                        text='/anu'
+                        label='flex',
+                        text=''
                     )
                 ]
             )
@@ -134,13 +134,13 @@ def handle_message(event):
                 size='full',
                 aspect_ratio='20:13',
                 aspect_mode='cover',
-                action=URIAction(uri='http://line.me/ti/p/~adit_cmct', label='label')
+                action=URIAction(uri='http://line.me/ti/p/~vekok.', label='label')
             ),
             body=BoxComponent(
                 layout='vertical',
                 contents=[
                     # title
-                    TextComponent(text='Aditmadzs', weight='bold', size='xl'),
+                    TextComponent(text='vekok', weight='bold', size='xl'),
                     # review
                     BoxComponent(
                         layout='baseline',
@@ -213,7 +213,7 @@ def handle_message(event):
                     ButtonComponent(
                         style='link',
                         height='sm',
-                        action=URIAction(label='Aditmadzs', uri="https://line.me/ti/p/~vekok.")
+                        action=URIAction(label='vekok', uri="https://line.me/ti/p/~vekok.")
                     )
                 ]
             ),
