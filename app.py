@@ -57,7 +57,7 @@ def handle_message(event):
     sender = event.source.user_id #get user_id
     gid = event.source.sender_id #get group_id
 #=====[ LEAVE GROUP OR ROOM ]==========
-    if text == 'bye':
+    if text == 'minggat':
         if isinstance(event.source, SourceGroup):
             line_bot_api.reply_message(
                 event.reply_token, TextSendMessage(text='Leaving group'))
