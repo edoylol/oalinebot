@@ -71,7 +71,7 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text="Bot can't leave from 1:1 chat"))
 #=====[ TEMPLATE MESSAGE ]=============
-    elif text == '/template':
+    elif text == '/help':
         buttons_template = TemplateSendMessage(
             alt_text='template',
             template=ButtonsTemplate(
@@ -79,12 +79,12 @@ def handle_message(event):
                 text= 'Tap the Button',
                 actions=[
                     MessageTemplateAction(
-                        label='Culum 1',
-                        text='/anu'
+                        label='help',
+                        text='/help'
                     ),
                     MessageTemplateAction(
-                        label='CULUM 2',
-                        text='/anu'
+                        label='bot leave',
+                        text='/minggat'
                     ),
                     MessageTemplateAction(
                         label='CULUM 3',
@@ -96,7 +96,7 @@ def handle_message(event):
         
         line_bot_api.reply_message(event.reply_token, buttons_template)
 #=====[ CAROUSEL MESSAGE ]==========
-    elif text == '/carousel':
+    elif text == '/menu':
         message = TemplateSendMessage(
             alt_text='OTHER MENU',
             template=CarouselTemplate(
