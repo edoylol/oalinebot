@@ -88,7 +88,7 @@ def handle_message(event):
                     ),
                     MessageTemplateAction(
                         label='flex',
-                        text=''
+                        text='flex'
                     )
                 ]
             )
