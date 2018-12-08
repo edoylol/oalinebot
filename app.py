@@ -57,14 +57,14 @@ def handle_message(event):
     sender = event.source.user_id #get user_id
     gid = event.source.sender_id #get group_id
 #=====[ LEAVE GROUP OR ROOM ]==========
-    if text == 'minggat':
+    if text == '/minggat':
         if isinstance(event.source, SourceGroup):
             line_bot_api.reply_message(
-                event.reply_token, TextSendMessage(text='Leaving group'))
+                event.reply_token, TextSendMessage(text='bye👌'))
             line_bot_api.leave_group(event.source.group_id)
         elif isinstance(event.source, SourceRoom):
             line_bot_api.reply_message(
-                event.reply_token, TextSendMessage(text='Leaving group'))
+                event.reply_token, TextSendMessage(text='good bye vroh👌'))
             line_bot_api.leave_room(event.source.room_id)
         else:
             line_bot_api.reply_message(
@@ -73,13 +73,13 @@ def handle_message(event):
 #=====[ TEMPLATE MESSAGE ]=============
     elif text == '/help':
         buttons_template = TemplateSendMessage(
-            alt_text='template',
+            alt_text='help',
             template=ButtonsTemplate(
                 title='[ TEMPLATE MSG ]',
                 text= 'Tap the Button',
                 actions=[
                     MessageTemplateAction(
-                        label='help',
+                        label='help menu',
                         text='/menu'
                     ),
                     MessageTemplateAction(
